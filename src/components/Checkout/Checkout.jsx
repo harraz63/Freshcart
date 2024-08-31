@@ -16,7 +16,7 @@ export default function Checkout() {
       city: "",
     },
     onSubmit: () =>
-      handleCheckout(cartId, "http://localhost:5173"),
+      handleCheckout(cartId, "https://freshcart-beryl.vercel.app/allorders"),
   });
   
   async function handleCheckout(cartId, url) {
