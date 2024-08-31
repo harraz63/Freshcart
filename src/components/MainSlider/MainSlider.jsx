@@ -16,29 +16,35 @@ export default function MainSlider() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000, // Increased autoplay speed for better readability
+    autoplaySpeed: 2000,
   };
 
   return (
-    <div className="container mx-auto px-4 mt-3">
+    <div className="container mx-auto px-4 mt-3 overflow-hidden">
       <div className="flex flex-col md:flex-row gap-4">
-        <div className="md:w-3/4 w-full">
+        <div className="md:w-3/4 w-full overflow-hidden">
           <Slider {...settings}>
-            <img
-              src={slide1}
-              className="w-full h-[200px] md:h-[400px] object-cover"
-              alt="Slide 1"
-            />
-            <img
-              src={slide3}
-              className="w-full h-[200px] md:h-[400px] object-cover"
-              alt="Slide 3"
-            />
-            <img
-              src={slide5}
-              className="w-full h-[200px] md:h-[400px] object-cover"
-              alt="Slide 5"
-            />
+            <div>
+              <img
+                src={slide1}
+                className="w-full h-[200px] md:h-[400px] object-cover"
+                alt="Slide 1"
+              />
+            </div>
+            <div>
+              <img
+                src={slide3}
+                className="w-full h-[200px] md:h-[400px] object-cover"
+                alt="Slide 3"
+              />
+            </div>
+            <div>
+              <img
+                src={slide5}
+                className="w-full h-[200px] md:h-[400px] object-cover"
+                alt="Slide 5"
+              />
+            </div>
           </Slider>
         </div>
         <div className="md:w-1/4 w-full flex flex-col gap-4">

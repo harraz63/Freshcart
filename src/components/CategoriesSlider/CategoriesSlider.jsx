@@ -6,6 +6,7 @@ import Slider from "react-slick";
 
 export default function CategoriesSlider() {
   const [categories, setCategories] = useState([]);
+  const defaultImage = "path/to/default-image.jpg"; // Replace with your default image path
 
   var settings = {
     dots: false,
@@ -56,12 +57,13 @@ export default function CategoriesSlider() {
   }, []);
 
   return (
-    <>
+    <div className="overflow-hidden">
       <Slider {...settings} className="my-3">
         {categories.map((category) => (
           <div key={category._id} className="px-2">
             <img
-              src={category.image}
+              src={category.image || defaultImage}
+              onError={(e) => (e.target.src = defaultImage)}
               className="w-full h-[150px] md:h-[200px] object-cover rounded-lg"
               alt={category.name}
             />
@@ -71,6 +73,6 @@ export default function CategoriesSlider() {
           </div>
         ))}
       </Slider>
-    </>
+    </div>
   );
 }
