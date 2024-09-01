@@ -8,7 +8,6 @@ import { CartContext } from "./../../Context/CartContext";
 
 export default function Checkout() {
   let { checkout, cartId } = useContext(CartContext);
-  const url = `${window.location.origin}/#/allorders`;
 
   let formik = useFormik({
     initialValues: {
@@ -16,7 +15,7 @@ export default function Checkout() {
       phone: "",
       city: "",
     },
-    onSubmit: () => handleCheckout(cartId, url),
+    onSubmit: () => handleCheckout(cartId, `${window.location.origin}/#/allorders`),
   });
 
   async function handleCheckout(cartId, url) {
