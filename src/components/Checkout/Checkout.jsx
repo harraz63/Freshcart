@@ -8,6 +8,7 @@ import { CartContext } from "./../../Context/CartContext";
 
 export default function Checkout() {
   let { checkout, cartId } = useContext(CartContext);
+  const url = `${window.location.origin}/#/allorders`;
 
   let formik = useFormik({
     initialValues: {
@@ -15,10 +16,9 @@ export default function Checkout() {
       phone: "",
       city: "",
     },
-    onSubmit: () =>
-      handleCheckout(cartId, "https://freshcart-beryl.vercel.app"),
+    onSubmit: () => handleCheckout(cartId, url),
   });
-  
+
   async function handleCheckout(cartId, url) {
     let { data } = await checkout(cartId, url, formik.values);
     window.location.href = data.session.url;
