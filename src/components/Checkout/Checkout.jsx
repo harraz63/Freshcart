@@ -21,7 +21,8 @@ export default function Checkout() {
 
   async function handleCheckout(cartId, url) {
     let { data } = await checkout(cartId, url, formik.values);
-    window.location.href = data.session.url;
+    window.location.href = url;
+    // window.location.href = data.session.url;
   }
 
   return (
